@@ -1,0 +1,27 @@
+-- begin_signature
+-- ram_output_unit
+-- end_signature
+WIDTH=8;
+DEPTH=16;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	15 :	XXXXXXXX;
+	14 :	XXXXXXXX;
+	13 :	XXXXXXXX;
+	12 :	XXXXXXXX;
+	11 :	XXXXXXXX;
+	10 :	XXXXXXXX;
+	9 :	00000000;
+	8 :	00000000;
+	7 :	00000000;
+	6 :	00000000;
+	5 :	00000000;
+	4 :	00000000;
+	3 :	00000000;
+	2 :	00000000;
+	1 :	00000000;
+	0 :	00000000;
+END;

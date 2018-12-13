@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at snn_core.sv(4): object "done" differs only in case from object "DONE" in the same scope File: //userspace.cae.wisc.edu/people/k/kchua2/ece551/project/project/snn_core.sv Line: 4
+Warning (10268): Verilog HDL information at uart_tx.sv(47): always construct contains both blocking and non-blocking assignments File: //userspace.cae.wisc.edu/people/k/kchua2/ece551/project/project/uart_tx.sv Line: 47
+Info (10281): Verilog HDL Declaration information at uart_tx.sv(5): object "tx" differs only in case from object "TX" in the same scope File: //userspace.cae.wisc.edu/people/k/kchua2/ece551/project/project/uart_tx.sv Line: 5
+Info (10281): Verilog HDL Declaration information at uart_rx.sv(2): object "rx" differs only in case from object "RX" in the same scope File: //userspace.cae.wisc.edu/people/k/kchua2/ece551/project/project/uart_rx.sv Line: 2

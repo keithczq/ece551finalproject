@@ -1,0 +1,134 @@
+I:/ece551/project/project/snn_core_tb.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/snn_core_tb.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module snn_core_tb
+
+Top level modules:
+	snn_core_tb
+
+} {} {}} I:/ece551/project/project/uart_tx_tb.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/uart_tx_tb.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module uart_tx_tb
+
+Top level modules:
+	uart_tx_tb
+
+} {} {}} I:/ece551/project/project/uart_rx.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/uart_rx.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module uart_rx
+
+Top level modules:
+	uart_rx
+
+} {} {}} I:/ece551/project/project/rst_synch.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/rst_synch.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module rst_synch
+
+Top level modules:
+	rst_synch
+
+} {} {}} I:/ece551/project/project/rom_output_weight.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/rom_output_weight.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module rom_output_weight
+
+Top level modules:
+	rom_output_weight
+
+} {} {}} I:/ece551/project/project/ram_input_unit.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/ram_input_unit.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module ram_input_unit
+
+Top level modules:
+	ram_input_unit
+
+} {} {}} I:/ece551/project/project/snn_core.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/snn_core.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module snn_core
+
+Top level modules:
+	snn_core
+
+} {} {}} I:/ece551/project/project/uart_tx.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/uart_tx.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module uart_tx
+
+Top level modules:
+	uart_tx
+
+} {} {}} I:/ece551/project/project/uart_snn_tb.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/uart_snn_tb.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module uart_snn_tb
+
+Top level modules:
+	uart_snn_tb
+
+} {} {}} I:/ece551/project/project/rom_hidden_weight.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/rom_hidden_weight.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module rom_hidden_weight
+
+Top level modules:
+	rom_hidden_weight
+
+} {} {}} I:/ece551/project/project/rom_act_func_lut.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/rom_act_func_lut.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module rom_act_func_lut
+
+Top level modules:
+	rom_act_func_lut
+
+} {} {}} {I:/WIN/Desktop/ece551 project/snn_tb.sv} {1 {vlog -work work -vopt -sv -stats=none {I:/win/desktop/ece551 project/snn_tb.sv}
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module snn_tb
+
+Top level modules:
+	snn_tb
+
+} {} {}} I:/ece551/project/project/rom_hidden_weight_tb.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/rom_hidden_weight_tb.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module rom_hidden_weight_tb
+
+Top level modules:
+	rom_hidden_weight_tb
+
+} {} {}} I:/ece551/project/project/mac_tb.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/mac_tb.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module mac_tb
+
+Top level modules:
+	mac_tb
+
+} {} {}} I:/ece551/project/project/ram_test.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/ram_test.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module ram_test
+
+Top level modules:
+	ram_test
+
+} {} {}} I:/ece551/project/project/ram_output_unit.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/ram_output_unit.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module ram_output_unit
+
+Top level modules:
+	ram_output_unit
+
+} {} {}} I:/ece551/project/project/mac.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/mac.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module mac
+
+Top level modules:
+	mac
+
+} {} {}} I:/ece551/project/project/ram_hidden_unit.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/ram_hidden_unit.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module ram_hidden_unit
+
+Top level modules:
+	ram_hidden_unit
+
+} {} {}} I:/ece551/project/project/mux.sv {1 {vlog -work work -vopt -sv -stats=none I:/ece551/project/project/mux.sv
+Model Technology ModelSim SE vlog 10.3c Compiler 2014.07 Jul 19 2014
+-- Compiling module mux
+
+Top level modules:
+	mux
+
+} {} {}}

@@ -1,0 +1,230 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Expert(TM) in wire load mode
+// Version   : M-2016.12
+// Date      : Wed May  2 11:05:44 2018
+/////////////////////////////////////////////////////////////
+
+
+module snn ( clk, sys_rst_n, led, uart_rx, uart_tx );
+  output [7:0] led;
+  input clk, sys_rst_n, uart_rx;
+  output uart_tx;
+  wire   N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, N13, N14, N15,
+         N16, rst_n, N17, uart_rx_ff, uart_rx_synch, rx_rdy, _3_net_, we,
+         RIU_q, start, done, tx_start, N18, N19, N20, N21, N22, N23,
+         clr_byte_cnt, N24, N25, N26, N27, N28, N29, N30, N31, N32, byte_full,
+         N33, N34, N35, clr_NE_cnt, inc_NE_cnt, N36, N37, N38, N39, N40, N41,
+         N42, N43, N44, N45, N46, N47, N48, N49, N50, N51, N52, N53, N54,
+         NE_full, N55, N56, N57, N58, N59, N60, N61, N62, N63, N64, N65, N66,
+         N67, N68, N69, N70, N71, N72, N73, N74, N75, N76, N77, N78, N79, N80,
+         N81, N82, N83, N84, N85, N86, N87, N88, N89, N90, N91, N92, N93, N94,
+         N95, N96, N97, N98, N99, N100, N101, N102;
+  wire   [7:0] uart_data;
+  wire   [9:0] addr;
+  wire   [3:0] byte_cnt;
+  wire   [9:0] addr_in_unit;
+  wire   [3:0] digit;
+  wire   [6:0] NE_cnt;
+
+  rst_synch i_rst_synch ( .sys_rst_n(sys_rst_n), .rst_n(rst_n), .clk(clk) );
+  \**SEQGEN**  uart_rx_synch_reg ( .clear(1'b0), .preset(N17), .next_state(
+        uart_rx_ff), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(
+        uart_rx_synch), .synch_clear(1'b0), .synch_preset(1'b0), 
+        .synch_toggle(1'b0), .synch_enable(1'b1) );
+  \**SEQGEN**  uart_rx_ff_reg ( .clear(1'b0), .preset(N17), .next_state(
+        uart_rx), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(
+        uart_rx_ff), .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(
+        1'b0), .synch_enable(1'b1) );
+  uart_rx uart_rx1 ( .clk(clk), .rst_n(rst_n), .rx(uart_rx_synch), .rx_rdy(
+        rx_rdy), .rx_data(uart_data) );
+  ram_input_unit RIU1 ( .data(_3_net_), .addr(addr), .we(we), .clk(clk), .q(
+        RIU_q) );
+  snn_core snn_core1 ( .clk(clk), .rst_n(rst_n), .start(start), .q_in(RIU_q), 
+        .addr_in_unit(addr_in_unit), .digit(digit), .done(done) );
+  uart_tx uart_tx1 ( .clk(clk), .rst_n(rst_n), .tx_start(tx_start), .tx_data({
+        1'b0, 1'b0, 1'b0, 1'b0, digit}), .tx(uart_tx) );
+  \**SEQGEN**  \led_reg[7]  ( .clear(N20), .preset(1'b0), .next_state(1'b0), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(led[7]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \led_reg[6]  ( .clear(N20), .preset(1'b0), .next_state(1'b0), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(led[6]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \led_reg[5]  ( .clear(N20), .preset(1'b0), .next_state(1'b0), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(led[5]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \led_reg[4]  ( .clear(N20), .preset(1'b0), .next_state(1'b0), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(led[4]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \led_reg[3]  ( .clear(N20), .preset(1'b0), .next_state(digit[3]), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(led[3]), .synch_clear(
+        1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), .synch_enable(1'b1)
+         );
+  \**SEQGEN**  \led_reg[2]  ( .clear(N20), .preset(1'b0), .next_state(digit[2]), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(led[2]), .synch_clear(
+        1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), .synch_enable(1'b1)
+         );
+  \**SEQGEN**  \led_reg[1]  ( .clear(N20), .preset(1'b0), .next_state(digit[1]), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(led[1]), .synch_clear(
+        1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), .synch_enable(1'b1)
+         );
+  \**SEQGEN**  \led_reg[0]  ( .clear(N20), .preset(1'b0), .next_state(digit[0]), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(led[0]), .synch_clear(
+        1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), .synch_enable(1'b1)
+         );
+  \**SEQGEN**  \byte_cnt_reg[3]  ( .clear(N21), .preset(1'b0), .next_state(N32), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(byte_cnt[3]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \byte_cnt_reg[2]  ( .clear(N21), .preset(1'b0), .next_state(N31), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(byte_cnt[2]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \byte_cnt_reg[1]  ( .clear(N21), .preset(1'b0), .next_state(N30), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(byte_cnt[1]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \byte_cnt_reg[0]  ( .clear(N21), .preset(1'b0), .next_state(N29), .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(byte_cnt[0]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \NE_cnt_reg[6]  ( .clear(N33), .preset(1'b0), .next_state(N52), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(NE_cnt[6]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \NE_cnt_reg[5]  ( .clear(N33), .preset(1'b0), .next_state(N51), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(NE_cnt[5]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \NE_cnt_reg[4]  ( .clear(N33), .preset(1'b0), .next_state(N50), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(NE_cnt[4]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \NE_cnt_reg[3]  ( .clear(N33), .preset(1'b0), .next_state(N49), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(NE_cnt[3]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \NE_cnt_reg[2]  ( .clear(N33), .preset(1'b0), .next_state(N48), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(NE_cnt[2]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \NE_cnt_reg[1]  ( .clear(N33), .preset(1'b0), .next_state(N47), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(NE_cnt[1]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  \**SEQGEN**  \NE_cnt_reg[0]  ( .clear(N33), .preset(1'b0), .next_state(N46), 
+        .clocked_on(clk), .data_in(1'b0), .enable(1'b0), .Q(NE_cnt[0]), 
+        .synch_clear(1'b0), .synch_preset(1'b0), .synch_toggle(1'b0), 
+        .synch_enable(1'b1) );
+  GTECH_OR2 C122 ( .A(1'b0), .B(1'b0), .Z(N56) );
+  GTECH_OR2 C123 ( .A(N56), .B(N55), .Z(N57) );
+  GTECH_OR2 C126 ( .A(1'b0), .B(N59), .Z(N60) );
+  GTECH_OR2 C127 ( .A(N60), .B(1'b0), .Z(N61) );
+  GTECH_OR2 C131 ( .A(1'b0), .B(N63), .Z(N65) );
+  GTECH_OR2 C132 ( .A(N65), .B(N64), .Z(N66) );
+  GTECH_OR2 C135 ( .A(N68), .B(1'b0), .Z(N69) );
+  GTECH_OR2 C136 ( .A(N69), .B(1'b0), .Z(N70) );
+  GTECH_AND2 C138 ( .A(1'b0), .B(1'b0), .Z(N72) );
+  GTECH_AND2 C139 ( .A(1'b0), .B(1'b0), .Z(N73) );
+  GTECH_AND2 C143 ( .A(N74), .B(N75), .Z(N77) );
+  GTECH_AND2 C144 ( .A(N77), .B(N76), .Z(N78) );
+  GTECH_NOT I_0 ( .A(NE_cnt[6]), .Z(N87) );
+  GTECH_NOT I_1 ( .A(NE_cnt[5]), .Z(N88) );
+  GTECH_NOT I_2 ( .A(NE_cnt[1]), .Z(N89) );
+  GTECH_OR2 C201 ( .A(N88), .B(N87), .Z(N90) );
+  GTECH_OR2 C202 ( .A(NE_cnt[4]), .B(N90), .Z(N91) );
+  GTECH_OR2 C203 ( .A(NE_cnt[3]), .B(N91), .Z(N92) );
+  GTECH_OR2 C204 ( .A(NE_cnt[2]), .B(N92), .Z(N93) );
+  GTECH_OR2 C205 ( .A(N89), .B(N93), .Z(N94) );
+  GTECH_OR2 C206 ( .A(NE_cnt[0]), .B(N94), .Z(N95) );
+  GTECH_NOT I_3 ( .A(N95), .Z(N96) );
+  GTECH_NOT I_4 ( .A(byte_cnt[3]), .Z(N97) );
+  GTECH_OR2 C209 ( .A(byte_cnt[2]), .B(N97), .Z(N98) );
+  GTECH_OR2 C210 ( .A(byte_cnt[1]), .B(N98), .Z(N99) );
+  GTECH_OR2 C211 ( .A(byte_cnt[0]), .B(N99), .Z(N100) );
+  GTECH_NOT I_5 ( .A(N100), .Z(N101) );
+  ADD_UNS_OP add_82 ( .A(byte_cnt), .B(1'b1), .Z({N28, N27, N26, N25}) );
+  ADD_UNS_OP add_97 ( .A(NE_cnt), .B(1'b1), .Z({N45, N44, N43, N42, N41, N40, 
+        N39}) );
+  SELECT_OP C213 ( .DATA1({NE_cnt, byte_cnt[2:0]}), .DATA2(addr_in_unit), 
+        .CONTROL1(N0), .CONTROL2(N1), .Z(addr) );
+  GTECH_BUF B_0 ( .A(N19), .Z(N0) );
+  GTECH_BUF B_1 ( .A(N18), .Z(N1) );
+  SELECT_OP C214 ( .DATA1({1'b0, 1'b0, 1'b0, 1'b0}), .DATA2({N28, N27, N26, 
+        N25}), .CONTROL1(N2), .CONTROL2(N3), .Z({N32, N31, N30, N29}) );
+  GTECH_BUF B_2 ( .A(clr_byte_cnt), .Z(N2) );
+  GTECH_BUF B_3 ( .A(N24), .Z(N3) );
+  SELECT_OP C215 ( .DATA1({1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0}), .DATA2(
+        {N45, N44, N43, N42, N41, N40, N39}), .DATA3(NE_cnt), .CONTROL1(N4), 
+        .CONTROL2(N54), .CONTROL3(N37), .Z({N52, N51, N50, N49, N48, N47, N46}) );
+  GTECH_BUF B_4 ( .A(clr_NE_cnt), .Z(N4) );
+  SELECT_OP C216 ( .DATA1(1'b1), .DATA2(1'b0), .DATA3(1'b0), .CONTROL1(N5), 
+        .CONTROL2(N6), .CONTROL3(N7), .Z(N84) );
+  GTECH_BUF B_5 ( .A(N80), .Z(N5) );
+  GTECH_BUF B_6 ( .A(byte_full), .Z(N6) );
+  GTECH_BUF B_7 ( .A(1'b0), .Z(N7) );
+  SELECT_OP C217 ( .DATA1(1'b0), .DATA2(1'b0), .DATA3(1'b1), .CONTROL1(N5), 
+        .CONTROL2(N8), .CONTROL3(N83), .Z(N85) );
+  GTECH_BUF B_8 ( .A(N81), .Z(N8) );
+  SELECT_OP C218 ( .DATA1(rx_rdy), .DATA2(1'b0), .DATA3(1'b0), .DATA4(1'b0), 
+        .DATA5(1'b0), .CONTROL1(N9), .CONTROL2(N10), .CONTROL3(N11), 
+        .CONTROL4(N12), .CONTROL5(N13), .Z(clr_byte_cnt) );
+  GTECH_BUF B_9 ( .A(N58), .Z(N9) );
+  GTECH_BUF B_10 ( .A(N62), .Z(N10) );
+  GTECH_BUF B_11 ( .A(N67), .Z(N11) );
+  GTECH_BUF B_12 ( .A(N71), .Z(N12) );
+  GTECH_BUF B_13 ( .A(N79), .Z(N13) );
+  SELECT_OP C219 ( .DATA1(1'b0), .DATA2(N85), .DATA3(1'b0), .DATA4(1'b0), 
+        .DATA5(1'b0), .CONTROL1(N9), .CONTROL2(N10), .CONTROL3(N11), 
+        .CONTROL4(N12), .CONTROL5(N13), .Z(inc_NE_cnt) );
+  SELECT_OP C220 ( .DATA1(1'b0), .DATA2(N84), .DATA3(1'b0), .DATA4(1'b0), 
+        .DATA5(1'b0), .CONTROL1(N9), .CONTROL2(N10), .CONTROL3(N11), 
+        .CONTROL4(N12), .CONTROL5(N13), .Z(we) );
+  SELECT_OP C221 ( .DATA1(1'b0), .DATA2(1'b0), .DATA3(done), .DATA4(1'b0), 
+        .DATA5(1'b0), .CONTROL1(N9), .CONTROL2(N10), .CONTROL3(N11), 
+        .CONTROL4(N12), .CONTROL5(N13), .Z(tx_start) );
+  SELECT_OP C222 ( .DATA1(1'b0), .DATA2(1'b0), .DATA3(1'b0), .DATA4(1'b0), 
+        .DATA5(N86), .CONTROL1(N9), .CONTROL2(N10), .CONTROL3(N11), .CONTROL4(
+        N12), .CONTROL5(N13), .Z(clr_NE_cnt) );
+  MUX_OP C223 ( .D0(uart_data[0]), .D1(uart_data[1]), .D2(uart_data[2]), .D3(
+        uart_data[3]), .D4(uart_data[4]), .D5(uart_data[5]), .D6(uart_data[6]), 
+        .D7(uart_data[7]), .S0(N14), .S1(N15), .S2(N16), .Z(_3_net_) );
+  GTECH_BUF B_14 ( .A(byte_cnt[0]), .Z(N14) );
+  GTECH_BUF B_15 ( .A(byte_cnt[1]), .Z(N15) );
+  GTECH_BUF B_16 ( .A(byte_cnt[2]), .Z(N16) );
+  GTECH_NOT I_6 ( .A(rst_n), .Z(N17) );
+  GTECH_NOT I_7 ( .A(we), .Z(N18) );
+  GTECH_BUF B_17 ( .A(we), .Z(N19) );
+  GTECH_NOT I_8 ( .A(rst_n), .Z(N20) );
+  GTECH_NOT I_9 ( .A(rst_n), .Z(N21) );
+  GTECH_BUF B_18 ( .A(rst_n), .Z(N22) );
+  GTECH_BUF B_19 ( .A(N22), .Z(N23) );
+  GTECH_NOT I_10 ( .A(clr_byte_cnt), .Z(N24) );
+  GTECH_AND2 C237 ( .A(N23), .B(N24) );
+  GTECH_BUF B_20 ( .A(N101), .Z(byte_full) );
+  GTECH_NOT I_11 ( .A(rst_n), .Z(N33) );
+  GTECH_BUF B_21 ( .A(rst_n), .Z(N34) );
+  GTECH_BUF B_22 ( .A(N34), .Z(N35) );
+  GTECH_OR2 C244 ( .A(inc_NE_cnt), .B(clr_NE_cnt), .Z(N36) );
+  GTECH_NOT I_12 ( .A(N36), .Z(N37) );
+  GTECH_AND2 C246 ( .A(N35), .B(N54), .Z(N38) );
+  GTECH_NOT I_13 ( .A(clr_NE_cnt), .Z(N53) );
+  GTECH_AND2 C248 ( .A(inc_NE_cnt), .B(N53), .Z(N54) );
+  GTECH_AND2 C249 ( .A(N38), .B(N53) );
+  GTECH_BUF B_23 ( .A(N96), .Z(NE_full) );
+  GTECH_NOT I_14 ( .A(1'b0), .Z(N55) );
+  GTECH_NOT I_15 ( .A(N57), .Z(N58) );
+  GTECH_NOT I_16 ( .A(1'b0), .Z(N59) );
+  GTECH_NOT I_17 ( .A(N61), .Z(N62) );
+  GTECH_NOT I_18 ( .A(1'b0), .Z(N63) );
+  GTECH_NOT I_19 ( .A(1'b0), .Z(N64) );
+  GTECH_NOT I_20 ( .A(N66), .Z(N67) );
+  GTECH_NOT I_21 ( .A(1'b0), .Z(N68) );
+  GTECH_NOT I_22 ( .A(N70), .Z(N71) );
+  GTECH_NOT I_23 ( .A(1'b0), .Z(N74) );
+  GTECH_NOT I_24 ( .A(1'b0), .Z(N75) );
+  GTECH_NOT I_25 ( .A(1'b0), .Z(N76) );
+  GTECH_OR2 C263 ( .A(N72), .B(N102), .Z(N79) );
+  GTECH_OR2 C264 ( .A(N73), .B(N78), .Z(N102) );
+  GTECH_NOT I_26 ( .A(byte_full), .Z(N80) );
+  GTECH_AND2 C272 ( .A(byte_full), .B(NE_full), .Z(N81) );
+  GTECH_OR2 C275 ( .A(N81), .B(N80), .Z(N82) );
+  GTECH_NOT I_27 ( .A(N82), .Z(N83) );
+  GTECH_NOT I_28 ( .A(uart_rx_synch), .Z(N86) );
+endmodule
+

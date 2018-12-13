@@ -1,0 +1,7 @@
+read_file -format verilog {./uart_rx.sv ./rst_synch.sv ./rom_output_weight.sv ./ram_input_unit.sv uart_tx.sv ./snn_core.sv ./snn.sv ./rom_hidden_weight.sv ./ram_hidden_unit.sv ./rom_act_func_lut.sv ./ram_output_unit.sv ./mac.sv}
+
+set current_design snn
+
+compile -map_effort medium
+
+write -format verilog snn -output snn.vg

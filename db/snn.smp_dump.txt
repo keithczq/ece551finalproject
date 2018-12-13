@@ -1,0 +1,20 @@
+
+State Machine - |snn|snn_core:comb_13|state
+Name state.DONE state.MAC_OUTPUT_WRITE state.MAC_OUTPUT_BP state.MAC_OUTPUT_FP state.MAC_OUTPUT state.MAC_HIDDEN_WRITE state.MAC_HIDDEN_BP state.MAC_HIDDEN_FP state.MAC_HIDDEN state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 
+state.MAC_HIDDEN 0 0 0 0 0 0 0 0 1 1 
+state.MAC_HIDDEN_FP 0 0 0 0 0 0 0 1 0 1 
+state.MAC_HIDDEN_BP 0 0 0 0 0 0 1 0 0 1 
+state.MAC_HIDDEN_WRITE 0 0 0 0 0 1 0 0 0 1 
+state.MAC_OUTPUT 0 0 0 0 1 0 0 0 0 1 
+state.MAC_OUTPUT_FP 0 0 0 1 0 0 0 0 0 1 
+state.MAC_OUTPUT_BP 0 0 1 0 0 0 0 0 0 1 
+state.MAC_OUTPUT_WRITE 0 1 0 0 0 0 0 0 0 1 
+state.DONE 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |snn|uart_rx:uart_rx1|state
+Name state.BACK_PORCH state.RX state.FRONT_PORCH state.IDLE 
+state.IDLE 0 0 0 0 
+state.FRONT_PORCH 0 0 1 1 
+state.RX 0 1 0 1 
+state.BACK_PORCH 1 0 0 1 

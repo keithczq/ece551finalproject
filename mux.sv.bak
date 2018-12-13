@@ -1,0 +1,13 @@
+module mux( select, d1, d0, q );
+
+input select;
+input d1, d0;
+output q;
+
+wire q;
+wire select;
+wire d;
+
+assign q = (select) ? d1 : d0;
+
+endmodule

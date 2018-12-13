@@ -1,0 +1,20 @@
+Fitter Status : Successful - Tue May 01 21:54:08 2018
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : snn
+Top-level Entity Name : snn
+Family : Cyclone IV GX
+Device : EP4CGX15BF14C6
+Timing Models : Final
+Total logic elements : 281 / 14,400 ( 2 % )
+    Total combinational functions : 276 / 14,400 ( 2 % )
+    Dedicated logic registers : 96 / 14,400 ( < 1 % )
+Total registers : 96
+Total pins : 12 / 81 ( 15 % )
+Total virtual pins : 0
+Total memory bits : 283,008 / 552,960 ( 51 % )
+Embedded Multiplier 9-bit elements : 0
+Total GXB Receiver Channel PCS : 0 / 2 ( 0 % )
+Total GXB Receiver Channel PMA : 0 / 2 ( 0 % )
+Total GXB Transmitter Channel PCS : 0 / 2 ( 0 % )
+Total GXB Transmitter Channel PMA : 0 / 2 ( 0 % )
+Total PLLs : 0 / 3 ( 0 % )

@@ -1,0 +1,18 @@
+Analysis & Synthesis Status : Successful - Tue May 01 21:53:51 2018
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : snn
+Top-level Entity Name : snn
+Family : Cyclone IV GX
+Total logic elements : 296
+    Total combinational functions : 275
+    Dedicated logic registers : 96
+Total registers : 96
+Total pins : 12
+Total virtual pins : 0
+Total memory bits : 283,008
+Embedded Multiplier 9-bit elements : 0
+Total GXB Receiver Channel PCS : 0
+Total GXB Receiver Channel PMA : 0
+Total GXB Transmitter Channel PCS : 0
+Total GXB Transmitter Channel PMA : 0
+Total PLLs : 0
